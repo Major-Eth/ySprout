@@ -18,7 +18,7 @@ function	Slide1() {
 	const [aztecBalanceOfDay, set_aztecBalanceOfDay] = React.useState(0);
 
 	const fetchDaiBalance = React.useCallback(async () => {
-		const	provider = new ethers.providers.JsonRpcProvider('https://eth-mainnet.alchemyapi.io/v2/NpyGDGct9Li_g5G87nADFjil9SyZcBFV');
+		const	provider = new ethers.providers.JsonRpcProvider(`https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_KEY}`);
 		const	daiContract = new ethers.Contract(DAI_ADDRESS, ERC20_ABI_MIN, provider);
 		const	daiContractBalanceOfDay = await daiContract.balanceOf(AZTEC);
 		set_aztecBalanceOfDay(ethers.utils.formatEther(daiContractBalanceOfDay));
