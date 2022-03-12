@@ -16,17 +16,15 @@ module.exports = ({
 		],
 	},
 	env: {
-		WEBSITE_URI: 'https://yearn-ui.major.tax/',
-		WEBSITE_NAME: 'yUITemplate',
-		WEBSITE_TITLE: 'Yearn UI Template',
-		WEBSITE_DESCRIPTION: 'Template used for some Yearn\'s project',
-		PROJECT_GITHUB_URL: 'https://github.com/Major-Eth/yUITemplate',
-		USE_PRICES: true,
+		WEBSITE_URI: 'https://ysprout.major.tax/',
+		WEBSITE_NAME: 'ySprout',
+		WEBSITE_TITLE: 'ySprout',
+		WEBSITE_DESCRIPTION: 'Redefining the Future of Decentralized Tech',
+		PROJECT_GITHUB_URL: 'https://github.com/Major-Eth/ySprout',
+		USE_PRICES: false,
 		USE_PRICE_TRI_CRYPTO: false,
-		CG_IDS: ['yearn-finance'],
-		TOKENS: [
-			['0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e', 18]
-		],
+		CG_IDS: [],
+		TOKENS: [],
 		ALCHEMY_KEY: process.env.ALCHEMY_KEY
 	}
 });

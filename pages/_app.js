@@ -1,22 +1,72 @@
 import	React						from	'react';
 import	Head						from	'next/head';
+import	Link						from	'next/link';
+import	{useRouter}					from	'next/router';
 import	{DefaultSeo}				from	'next-seo';
-import	{ethers}					from	'ethers';
-import	{Web3ReactProvider}			from	'@web3-react/core';
-import	{BalancesContextApp}		from	'contexts/useBalances';
-import	{UIContextApp}				from	'contexts/useUI';
-import	{PricesContextApp}			from	'contexts/usePrices';
 import	{LocalizationContextApp}	from 	'contexts/useLocalization';
-import	{Web3ContextApp}			from	'contexts/useWeb3';
-import	Header						from	'components/StandardHeader';
-import	Footer						from	'components/StandardFooter';
+import	useClientEffect				from	'hooks/useClientEffect';
+import	ModalMenu					from	'components/ModalMenu';
+import	IconHamburger				from	'components/icons/IconHamburger';
 
-import	'tailwindcss/tailwind.css';
 import	'style/Default.css';
+
+function	Header() {
+	const	router = useRouter();
+	const	[openMenu, set_openMenu] = React.useState(false);
+
+	return (
+		<header className={'fixed inset-x-0 top-0 z-20 px-4 w-full bg-background md:px-0'}>
+			<div className={'flex relative z-20 flex-row justify-between items-center py-4 mx-auto w-full max-w-6xl md:py-6'}>
+				<div
+					className={'flex flex-row justify-center items-center text-base font-bold text-black cursor-pointer'}
+					onClick={() => router.asPath === '/' ? window.scroll({top: 0, behavior: 'smooth'}) : router.push('/')}>
+					{'ySprout'}
+				</div>
+				<div className={'flex flex-row items-center space-x-6 md:hidden'}>
+					<div
+						onClick={() => set_openMenu(true)}
+						className={'p-1 -m-1'}>
+						<IconHamburger />
+					</div>
+				</div>
+				<div className={'hidden flex-row justify-end items-center space-x-4 md:flex md:space-x-8'}>
+					<Link href={'/'}>
+						<p
+							className={`${router.asPath === '/' ? 'text-green-2 border-green-2' : 'border-green-2/0 text-black'} cursor-pointer font-bold px-0.5 border-b-2`}>
+							{'Home'}
+						</p>
+					</Link>
+					<Link href={'/faq'}>
+						<p
+							className={`${router.asPath === '/faq' ? 'text-green-2 border-green-2' : 'border-green-2/0 text-black'} cursor-pointer font-bold px-0.5 border-b-2`}>
+							{'Program FAQs'}
+						</p>
+					</Link>
+					<Link href={'/apply'}>
+						<p
+							className={`${router.asPath === '/apply' ? 'text-green-2 border-green-2' : 'border-green-2/0 text-black'} cursor-pointer font-bold px-0.5 border-b-2`}>
+							{'Apply'}
+						</p>
+					</Link>
+				</div>
+			</div>
+			<ModalMenu open={openMenu} set_open={set_openMenu} />
+		</header>
+	);
+}
 
 function	AppWrapper(props) {
 	const	{Component, pageProps, router} = props;
 	const	WEBSITE_URI = process.env.WEBSITE_URI;
+
+	useClientEffect(() => {
+		const isMobile = ('ontouchstart' in document.documentElement && navigator.userAgent.match(/Mobi/));
+		if (isMobile) {
+			document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+		} else if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) || (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform))) {
+			document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+		}
+	}, []);
 
 	return (
 		<>
@@ -65,44 +115,29 @@ function	AppWrapper(props) {
 					site: '@iearnfinance',
 					cardType: 'summary_large_image',
 				}} />
-			<Header />
-			<main id={'app'} className={'flex relative flex-col mx-auto mb-0 max-w-6xl md:flex-row md:mb-6'}>
+			<main id={'app'} className={'flex relative flex-col px-4 mx-auto mb-0 w-full h-auto min-h-screen md:px-0 md:mb-6'}>
+				<Header />
 				<Component
 					key={router.route}
 					element={props.element}
 					router={props.router}
 					{...pageProps} />
 			</main>
-			<Footer />
 		</>
 	);
 }
-
-const getLibrary = (provider) => {
-	return new ethers.providers.Web3Provider(provider, 'any');
-};
 
 function	MyApp(props) {
 	const	{Component, pageProps} = props;
 	
 	return (
-		<UIContextApp>
-			<Web3ReactProvider getLibrary={getLibrary}>
-				<Web3ContextApp>
-					<BalancesContextApp>
-						<PricesContextApp>
-							<LocalizationContextApp router={props.router}>
-								<AppWrapper
-									Component={Component}
-									pageProps={pageProps}
-									element={props.element}
-									router={props.router} />
-							</LocalizationContextApp>
-						</PricesContextApp>
-					</BalancesContextApp>
-				</Web3ContextApp>
-			</Web3ReactProvider>
-		</UIContextApp>
+		<LocalizationContextApp router={props.router}>
+			<AppWrapper
+				Component={Component}
+				pageProps={pageProps}
+				element={props.element}
+				router={props.router} />
+		</LocalizationContextApp>
 	);
 }
 

@@ -2,15 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --app-height: 100vh;
+}
+
+
 * {@apply scroll-smooth font-roboto}
 
 html {
 	margin-left: calc(100vw - 100%);
-	background: #F4F7FB;
-}
-html.dark {
-	margin-left: calc(100vw - 100%);
-	background: #0f172a;
+    scroll-snap-type: y mandatory;
+	background: #F2F2F2;
 }
 
 #__next {@apply w-full h-full}
@@ -42,47 +44,83 @@ button {@apply cursor-pointer}
 button:disabled {@apply cursor-not-allowed}
 
 /* Size of buttons */
-.button-small {@apply w-33 px-2 py-1 rounded-sm text-base text-center transition-colors}
-.button-large {@apply w-55 px-2 py-2 rounded-sm text-base text-center transition-colors}
+.button-small {@apply w-33 px-2 py-1 text-base text-center transition-colors}
+.button-large {@apply px-2 py-2 text-base text-center transition-colors}
 
 /* Color style of buttons */
-.button-light {@apply text-yearn-blue bg-yearn-blue-light-2 hover:bg-yearn-blue-light-1}
+.button-filled {@apply font-bold text-white bg-green-2 hover:bg-green-1}
+.button-filled:disabled {@apply bg-grey-3 text-grey-2 hover:bg-grey-3}
 
-.button-filled {@apply font-bold text-white bg-yearn-blue hover:bg-yearn-blue-dark}
-.button-filled:disabled {@apply bg-white-blue-1 text-gray-blue-3 hover:bg-white-blue-1}
+.button-outline {@apply text-green-2 border border-green-2 hover:bg-green-3 hover:text-green-2}
+.button-outline:disabled {@apply text-grey-3 border border-grey-3 bg-opacity-0}
 
-.button-outline {@apply text-yearn-blue border border-yearn-blue hover:bg-yearn-blue-light-2}
-.button-outline:disabled {@apply text-gray-blue-3 border border-gray-blue-3 bg-opacity-0}
+.link {@apply hover:text-green-2 hover:underline transition-colors cursor-pointer}
 
-.link {@apply hover:text-yearn-blue hover:underline transition-colors cursor-pointer}
+.input {@apply py-2 pl-4 h-10 text-grey-2 bg-white/0 border border-grey-2 focus:border-2 focus:border-green-2 focus:ring-0 focus:outline-none transition-colors}
+label:focus-within {@apply text-green-2 transition-colors}
+label:focus-within > .input {@apply text-black}
 
-.flex-center {@apply justify-center items-center}
-
-.fake-browser-controls:before {
-	content: "";
-	display: block;
-	width: 8px;
-	height: 8px;
-	border-radius: 40px;
-	position: absolute;
-	top: 16px;
-	left: 16px;
-	background: #ff5f56;
-	box-shadow: 16px 0px 0px #ffbd2e, 32px 0px 0px #27c93f;
-}
+.textarea {@apply py-2 pl-4 h-52 text-grey-2 bg-white/0 border border-grey-2 focus:border-2 focus:border-green-2 focus:ring-0 focus:outline-none transition-colors}
+label:focus-within {@apply text-green-2 transition-colors}
+label:focus-within > .textarea {@apply text-black focus:outline-none}
 
 select {
 	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23004ADF' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")
 }
 
-.__react_component_tooltip.show,
-.tooltip {
-	height: fit-content !important;
-	background: #FFFFFF !important;
-	opacity: 1 !important;
-	@apply bg-white border border-gray-blue-3 p-2 w-64 text-left tabular-nums font-mono !important;
+html, body, section, main {
+    block-size: 100%;
+}  
+.section-wrapper {
+	width: 100%;
+    block-size: 100%;
+    scroll-snap-type: y mandatory;
 }
-.__react_component_tooltip .multi-line {
-	@apply text-left !important;
+.section {
+    block-size: 100%;
+    scroll-snap-align: end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.with-top-gradient {
+	background: linear-gradient(180deg, #F2F2F2 0%, rgba(242, 242, 242, 0) 100%);
+}
+
+.button-gradient {
+	background: linear-gradient(0deg, #0657F9, #0657F9), #C4C4C4;
+}
+
+@media (max-width: 769px) {
+    .inline-cards {
+        width: calc(100vw);
+        margin-left: -1rem;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-margin-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
+    .inline-cards > div {
+        block-size: 100%;
+        scroll-snap-align: end;
+        min-width: calc(100vw - 4.5rem);
+        scroll-margin-right: 3rem;
+    }
+
+    .inline-cards > div:last-child {
+        margin-right: 1.5rem;
+    }
 
 }
+
+
+ 
+/* @supports (-webkit-touch-callout: none) { */
+    .h-screen {
+        height: var(--app-height);
+        /* background: red; */
+        /* height: -webkit-fill-available !important; */
+        /* min-height: -webkit-fill-available; */
+    }
+/* } */
