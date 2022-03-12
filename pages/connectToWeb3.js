@@ -1,7 +1,6 @@
 import	React				from	'react';
 import	{ethers}			from	'ethers';
 import	Image				from	'next/image';
-import Link from 'next/link';
 
 const	AZTEC = '0x737901bea3eeb88459df9ef1BE8fF3Ae1B42A2ba';
 const	DAI_ADDRESS = '0x6b175474e89094c44da98b954eedeac495271d0f';
@@ -42,9 +41,7 @@ function	Slide1() {
 						</h2>
 
 						<div className={'flex flex-row mt-6 space-x-4'}>
-							<Link href={'/apply'}>
-								<button className={'w-55 button-filled button-large'}>{'Refresh'}</button>
-							</Link>
+							<button onClick={() => fetchDaiBalance()} className={'w-55 button-filled button-large'}>{'Refresh'}</button>
 						</div>
 					</div>
 					<div className={'hidden col-span-12 md:block md:col-span-6 small:col-span-5'}>
