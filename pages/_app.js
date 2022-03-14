@@ -3,6 +3,7 @@ import	Head						from	'next/head';
 import	Link						from	'next/link';
 import	{useRouter}					from	'next/router';
 import	{DefaultSeo}				from	'next-seo';
+import	{Toaster}					from	'react-hot-toast';
 import	{LocalizationContextApp}	from 	'contexts/useLocalization';
 import	useClientEffect				from	'hooks/useClientEffect';
 import	ModalMenu					from	'components/ModalMenu';
@@ -103,7 +104,7 @@ function	AppWrapper(props) {
 					description: process.env.WEBSITE_DESCRIPTION,
 					images: [
 						{
-							url: `${WEBSITE_URI}og.png`,
+							url: `${WEBSITE_URI}og.jpeg`,
 							width: 1200,
 							height: 675,
 							alt: 'Yearn',
@@ -116,6 +117,9 @@ function	AppWrapper(props) {
 					cardType: 'summary_large_image',
 				}} />
 			<main id={'app'} className={'flex relative flex-col px-4 mx-auto mb-0 w-full h-auto min-h-screen md:px-0 md:mb-6'}>
+				<Toaster
+					position={'bottom-right'}
+					toastOptions={{className: 'text-sm', style: {borderRadius: 0}}} />
 				<Header />
 				<Component
 					key={router.route}

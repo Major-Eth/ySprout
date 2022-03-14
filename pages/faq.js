@@ -1,33 +1,5 @@
 import	React, {useState}				from	'react';
-
-function	Footer() {
-	return (
-		<footer className={'flex mt-auto'}>
-			<div className={'flex flex-row px-4 pt-6 pb-10 -mx-4 mt-10 w-auto bg-green-3 md:mt-30 md:w-full'}>
-				<div className={'grid grid-cols-12 mx-auto w-full max-w-6xl'}>
-					<div className={'col-span-12 md:col-span-8'}>
-						<p className={'mb-4 text-sm text-black md:text-base'}>{'Stay in the loop: Sign up with your email address to receive news and updates.'}</p>
-						<label className={'flex flex-col text-sm font-bold text-grey-2 md:text-base'}>
-							{'Sign up'}
-							<div className={'flex flex-row mt-2 space-x-4'}>
-								<input
-									className={'w-full md:w-[360px] input'}
-									placeholder={'Your e-mail'} />
-								<button className={'w-1/2 md:w-55 button-filled button-large'}>{'Submit'}</button>
-							</div>
-							
-						</label>
-					</div>
-					<div className={'col-span-12 md:col-span-4'}>
-						<p className={'mt-6 mb-2 text-sm text-black md:mt-0 md:text-base'}>{'Other questions, comments, or concerns?'}</p>
-						<p className={'text-xs text-grey-2'}>{'Email '}<a href={'mailto:people@yearn.finance'} className={'text-green-2 link'}>{'people@yearn.finance'}</a>{' and we will get back to you shortly.'}</p>
-					</div>
-				</div>
-			</div>
-		</footer>
-	);
-}
-
+import	Footer		from	'components/Footer';
 
 function	FAQElement({label, children}) {
 	const	[isExpandedAnimation, set_isExpandedAnimation] = useState(false);

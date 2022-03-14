@@ -16,7 +16,7 @@ module.exports = ({
 		],
 	},
 	env: {
-		WEBSITE_URI: 'https://ysprout.major.tax/',
+		WEBSITE_URI: 'https://sprout.major.farm/',
 		WEBSITE_NAME: 'ySprout',
 		WEBSITE_TITLE: 'ySprout',
 		WEBSITE_DESCRIPTION: 'Redefining the Future of Decentralized Tech',
@@ -25,6 +25,8 @@ module.exports = ({
 		USE_PRICE_TRI_CRYPTO: false,
 		CG_IDS: [],
 		TOKENS: [],
-		ALCHEMY_KEY: process.env.ALCHEMY_KEY
+		ALCHEMY_KEY: process.env.ALCHEMY_KEY,
+		FORM_EMAIL: process.env.FORM_EMAIL,
+		FORM_APPLY: process.env.FORM_APPLY
 	}
 });

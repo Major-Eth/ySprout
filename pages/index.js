@@ -1,12 +1,13 @@
 import	React				from	'react';
-import	useScroll			from	'hooks/useScroll';
 import	Image				from	'next/image';
-import Link from 'next/link';
+import	Link				from	'next/link';
+import	useScroll			from	'hooks/useScroll';
+import	toast				from	'react-hot-toast';
 
 function	Footer({currentPage, scrollTo}) {
 	return (
 		<footer className={'fixed inset-x-0 bottom-0 z-10 px-4 w-full bg-background md:px-0'}>
-			<div className={'flex flex-row justify-center py-6 mx-auto mt-auto space-x-4 w-full max-w-6xl md:justify-start md:py-10'}>
+			<div className={'flex flex-row justify-center py-4 mx-auto mt-auto space-x-4 w-full max-w-6xl md:justify-start md:py-10'}>
 				<div
 					onClick={() => scrollTo(0)}
 					className={`cursor-pointer transition-color w-2 h-2 ${currentPage <= 1 ? 'bg-green-2' : 'bg-grey-3'}`} />
@@ -25,6 +26,9 @@ function	Footer({currentPage, scrollTo}) {
 				<div
 					onClick={() => scrollTo(5)}
 					className={`cursor-pointer transition-color w-2 h-2 ${currentPage === 6 ? 'bg-green-2' : 'bg-grey-3'}`} />
+				<div
+					onClick={() => scrollTo(6)}
+					className={`cursor-pointer transition-color w-2 h-2 ${currentPage === 7 ? 'bg-green-2' : 'bg-grey-3'}`} />
 			</div>
 		</footer>
 	);
@@ -33,16 +37,19 @@ function	Footer({currentPage, scrollTo}) {
 function	Slide1() {
 	return (
 		<div className={'flex flex-col mx-auto w-full max-w-6xl h-full'}>
-			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
-				<div className={'grid grid-cols-12 md:items-center'}>
-					<div className={'col-span-12 pr-0 md:col-span-6 md:pr-10 small:col-span-7'}>
-						<h1 className={'mt-10 text-3xl font-bold text-black whitespace-pre-wrap md:mt-0 md:text-4xl'}>{'Redefining the Future of Decentralized Tech'}</h1>
-						<p className={'my-6 text-grey-2'}>{'Sprout DAO is a tech incubator-accelerator program launched by pioneers and innovators across the DeFi and web3 space.'}</p>
-						<div className={'flex flex-row space-x-4'}>
+			<section className={'items-start pt-0 -mt-4 h-screen md:pt-60 md:mt-0 small:pt-32'}>
+				<div className={'grid grid-cols-12 grid-rows-2 h-full md:items-center'}>
+					<div className={'flex relative col-span-12 row-span-1 -mx-4 md:hidden md:col-span-6 small:col-span-5'}>
+						<Image src={'/image_1.jpeg'} width={525} height={560} loading={'eager'} />
+					</div>
+					<div className={'col-span-12 row-span-1 pr-0 md:col-span-6 md:pr-10 small:col-span-7'}>
+						<h1 className={'mt-4 text-xl font-bold text-black whitespace-pre-wrap md:mt-0 md:text-4xl'}>{'Redefining the Future of Decentralized Tech'}</h1>
+						<p className={'my-4 text-grey-2 md:my-6'}>{'Sprout DAO is a tech incubator-accelerator program launched by pioneers and innovators across the DeFi and web3 space.'}</p>
+						<div className={'flex flex-col space-y-4 space-x-0 md:flex-row md:space-y-0 md:space-x-4'}>
 							<Link href={'/apply'}>
-								<button className={'w-55 button-filled button-large'}>{'Apply'}</button>
+								<button className={'w-full md:w-55 button-filled button-large'}>{'Apply'}</button>
 							</Link>
-							<button className={'w-55 button-outline button-large'}>{'Explore'}</button>
+							<button className={'w-full md:w-55 button-outline button-large'}>{'Explore'}</button>
 						</div>
 					</div>
 					<div className={'hidden col-span-12 md:block md:col-span-6 small:col-span-5'}>
@@ -129,24 +136,23 @@ function	Slide4() {
 							<div>
 								<Image src={'/mentors/a.jpeg'} width={800} height={533} />
 								<h4 className={'pt-2 pb-1 text-lg text-black'}>{'Minor'}</h4>
-								<p className={'text-sm text-grey-2'}>{'A modest father from Manchester is obsessed with light sabres. People often compare him to a supermodel. He always carries a newspaper.'}</p>
+								<p className={'hidden text-sm text-grey-2 md:inline'}>{'A modest father from Manchester is obsessed with light sabres. People often compare him to a supermodel. He always carries a newspaper.'}</p>
 							</div>
 							<div>
 								<Image src={'/mentors/b.jpeg'} width={800} height={533} />
 								<h4 className={'pt-2 pb-1 text-lg text-black'}>{'Bang-tug'}</h4>
-								<p className={'text-sm text-grey-2'}>{'A shy professor who finds it hard to stay out of trouble. His top quality is that he is particularly cute. His purpose in life is to find a soulmate.'}</p>
+								<p className={'hidden text-sm text-grey-2 md:inline'}>{'A shy professor who finds it hard to stay out of trouble. His top quality is that he is particularly cute. His purpose in life is to find a soulmate.'}</p>
 							</div>
 							<div>
 								<Image src={'/mentors/c.jpeg'} width={800} height={533} />
-								<h4 className={'pt-2 pb-1 text-lg text-black'}>{'Vodka Champagne'}</h4>
-								<p className={'text-sm text-grey-2'}>{'A dishonest engineer from Brisbane is obsessed with chocolate. He has hair like a bird\'s nest. He always carries two phones.'}</p>
+								<h4 className={'pt-2 pb-1 text-lg text-black'}>{'Skullator'}</h4>
+								<p className={'hidden text-sm text-grey-2 md:inline'}>{'A 25-year-old engineer is traumatised by the loss of his right pinky when he was twelve. His biggest fear is being killed by a duck.'}</p>
 							</div>
 							<div>
 								<Image src={'/mentors/d.jpeg'} width={800} height={533} />
-								<h4 className={'pt-2 pb-1 text-lg text-black'}>{'Skullator'}</h4>
-								<p className={'text-sm text-grey-2'}>{'A 25-year-old engineer is traumatised by the loss of his right pinky when he was twelve. His biggest fear is being killed by a duck.'}</p>
+								<h4 className={'pt-2 pb-1 text-lg text-black'}>{'VodChamp'}</h4>
+								<p className={'hidden text-sm text-grey-2 md:inline'}>{'A dishonest engineer from Brisbane is obsessed with chocolate. He has hair like a bird\'s nest. He always carries two phones.'}</p>
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -216,19 +222,42 @@ function	Slide6() {
 }
 
 function	Slide7() {
+	const	[lockSubmit, set_lockSubmit] = React.useState(false);
+
+	const	handleSubmit = () => {
+		if (!lockSubmit) {
+			return ('Submit');
+		}
+		return (
+			<svg className={'w-5 h-5 text-white animate-spin'} xmlns={'http://www.w3.org/2000/svg'} fill={'none'} viewBox={'0 0 24 24'}>
+				<circle className={'opacity-25'} cx={'12'} cy={'12'} r={'10'} stroke={'currentColor'} strokeWidth={'4'}></circle>
+				<path className={'opacity-75'} fill={'currentColor'} d={'M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'}></path>
+			</svg>
+		);
+	};
+
 	return (
 		<div className={'flex flex-col mx-auto w-full max-w-6xl h-full'}>
 			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
 				<div className={'grid grid-cols-12 md:items-center'}>
 					<div className={'col-span-12 pr-0 md:col-span-6 md:pr-10 small:col-span-7'}>
 						<form
+							id={'email-form'}
 							onSubmit={(e) => {
+								set_lockSubmit(true);
 								e.preventDefault();
-								const form = document.forms['apply-form'];
-								const scriptURL = 'https://script.google.com/macros/s/AKfycbx3k-loOJfhKvbyn4ORH343B5xwbcAzLnnxQcTNffGyOunWonl0F16OwozhjisJE3kV/exec';
+								const form = document.forms['email-form'];
+								const scriptURL = process.env.FORM_EMAIL;
 								fetch(scriptURL, {method: 'POST', body: new FormData(form)})
-									.then(response => console.log('Success!', response))
-									.catch(error => console.error('Error!', error.message));
+									.then(() => {
+										toast.success('Thank you!');
+										form.reset();
+										set_lockSubmit(false);
+									})
+									.catch(() => {
+										toast.error('Something went wrong. Please try again.');
+										set_lockSubmit(false);
+									});
 							}}>
 							<h3 className={'mb-4 text-lg font-bold text-black whitespace-pre-wrap md:text-2xl'}>
 								{'Stay in the loop: Sign up with your email address to receive news and updates.'}
@@ -236,13 +265,15 @@ function	Slide7() {
 							<label className={'flex flex-col font-bold text-grey-2'}>
 								{'Sign up'}
 								<input
-									name={'email'}
 									required
+									name={'email'}
 									type={'email'}
 									className={'mt-2 w-full input'}
 									placeholder={'Your e-mail'} />
 							</label>
-							<button className={'mt-4 w-full md:mt-4 md:w-55 button-filled button-large'}>{'Submit'}</button>
+							<button className={'flex justify-center items-center mt-4 w-full h-10 text-center md:mt-4 md:w-55 button-filled button-large'}>
+								{handleSubmit()}
+							</button>
 						</form>
 
 						<div className={'mt-12'}>
