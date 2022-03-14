@@ -37,7 +37,7 @@ function	Footer({currentPage, scrollTo}) {
 function	Slide1() {
 	return (
 		<div className={'flex flex-col mx-auto w-full max-w-6xl h-full'}>
-			<section className={'items-start pt-0 -mt-4 h-screen md:pt-60 md:mt-0 small:pt-32'}>
+			<section className={'items-start pt-0 -mt-4 h-screen md:pt-60 md:mt-0 small:pt-48'}>
 				<div className={'grid grid-cols-12 grid-rows-2 h-full md:items-center'}>
 					<div className={'flex relative col-span-12 row-span-1 -mx-4 md:hidden md:col-span-6 small:col-span-5'}>
 						<Image src={'/image_1.jpeg'} width={525} height={560} loading={'eager'} />
@@ -322,30 +322,30 @@ function Wrapper() {
 
 				<section className={'flex w-full h-screen section'}>
 					<div className={'w-full h-full'}>
-						<Slide2 moveSectionDown={() => scrollTo(2)} />
+						<Slide2 />
 					</div>
 				</section>
 
 				<section className={'flex w-full h-screen section'}>
 					<div className={'w-full h-full'}>
-						<Slide3 moveSectionDown={() => scrollTo(3)} />
+						<Slide3 />
 					</div>
 				</section>
 
 				<section className={'flex w-full h-screen section'}>
 					<div className={'w-full h-full'}>
-						<Slide4 moveSectionDown={() => scrollTo(4)} />
+						<Slide4 />
 					</div>
 				</section>
 
 				<section className={'flex w-full h-screen section'}>
 					<div className={'w-full h-full'}>
-						<Slide5 moveSectionDown={() => scrollTo(5)} />
+						<Slide5 />
 					</div>
 				</section>
 				<section className={'flex w-full h-screen section'}>
 					<div className={'w-full h-full'}>
-						<Slide6 moveSectionDown={() => scrollTo(6)} />
+						<Slide6 />
 					</div>
 				</section>
 				<section className={'flex w-full h-screen section'}>
