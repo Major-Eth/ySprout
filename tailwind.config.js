@@ -36,16 +36,20 @@ module.exports = {
 				42: '10.5rem',
 				50: '12.5rem',
 				55: '13.75rem',
+				71: '17.625rem',
 			},
 			height: {
 				30: '7.5rem',
+				71: '17.625rem',
 			},
 			spacing: {
 				30: '7.5rem',
 			},
 			maxWidth: {
 				'xl': '552px',
+				'3xl': '720px',
 				'4xl': '904px',
+				'5xl': '1000px',
 				'6xl': '1200px',
 			},
 			fontSize: {

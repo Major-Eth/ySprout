@@ -19,7 +19,7 @@ function	Footer() {
 	return (
 		<footer className={'flex mt-auto'}>
 			<div className={'flex flex-row px-4 pt-6 pb-10 mt-10 w-auto bg-green-3 md:mt-30 md:w-full'}>
-				<div className={'grid grid-cols-12 mx-auto w-full max-w-6xl'}>
+				<div className={'grid grid-cols-12 mx-auto w-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
 					<div className={'col-span-12 md:col-span-8'}>
 						<p className={'mb-4 text-sm text-black md:text-base'}>{'Stay in the loop: Sign up with your email address to receive news and updates.'}</p>
 						<label className={'flex flex-col text-sm font-bold text-grey-2 md:text-base'}>

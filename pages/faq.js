@@ -89,7 +89,7 @@ function	FAQ() {
 function Wrapper() {
 	return (
 		<>
-			<section className={'flex flex-col mx-auto mt-20 w-full max-w-6xl h-full md:mt-40'}>
+			<section className={'flex flex-col mx-auto mt-20 w-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl h-full md:mt-40'}>
 				<FAQ />
 			</section>
 			<Footer />

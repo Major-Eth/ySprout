@@ -8,6 +8,7 @@ import	{LocalizationContextApp}	from 	'contexts/useLocalization';
 import	useClientEffect				from	'hooks/useClientEffect';
 import	ModalMenu					from	'components/ModalMenu';
 import	IconHamburger				from	'components/icons/IconHamburger';
+import	IconSprout					from	'components/icons/IconSprout';
 
 import	'style/Default.css';
 
@@ -17,11 +18,12 @@ function	Header() {
 
 	return (
 		<header className={'fixed inset-x-0 top-0 z-20 px-4 w-full bg-background md:px-0'}>
-			<div className={'flex relative z-20 flex-row justify-between items-center py-4 mx-auto w-full max-w-6xl md:py-6'}>
+			<div className={'flex relative z-20 flex-row justify-between items-center py-4 mx-auto w-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl md:py-6'}>
 				<div
 					className={'flex flex-row justify-center items-center text-base font-bold text-black cursor-pointer'}
 					onClick={() => router.asPath === '/' ? window.scroll({top: 0, behavior: 'smooth'}) : router.push('/')}>
-					{'ySprout'}
+					<IconSprout className={'mr-2 text-black'} />
+					{'SproutDAO'}
 				</div>
 				<div className={'flex flex-row items-center space-x-6 md:hidden'}>
 					<div

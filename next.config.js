@@ -17,8 +17,8 @@ module.exports = ({
 	},
 	env: {
 		WEBSITE_URI: 'https://sprout.major.farm/',
-		WEBSITE_NAME: 'ySprout',
-		WEBSITE_TITLE: 'ySprout',
+		WEBSITE_NAME: 'SproutDAO',
+		WEBSITE_TITLE: 'SproutDAO',
 		WEBSITE_DESCRIPTION: 'Redefining the Future of Decentralized Tech',
 		PROJECT_GITHUB_URL: 'https://github.com/Major-Eth/ySprout',
 		USE_PRICES: false,

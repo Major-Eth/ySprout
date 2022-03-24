@@ -3,11 +3,12 @@ import	Image				from	'next/image';
 import	Link				from	'next/link';
 import	useScroll			from	'hooks/useScroll';
 import	toast				from	'react-hot-toast';
+import	IconChevron			from	'components/icons/IconChevron';
 
 function	Footer({currentPage, scrollTo}) {
 	return (
 		<footer className={'fixed inset-x-0 bottom-0 z-10 px-4 w-full bg-background md:px-0'}>
-			<div className={'flex flex-row justify-center py-4 mx-auto mt-auto space-x-4 w-full max-w-6xl md:justify-start md:py-10'}>
+			<div className={'flex flex-row justify-center py-4 mx-auto mt-auto space-x-4 w-full md:justify-start md:py-10 md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
 				<div
 					onClick={() => scrollTo(0)}
 					className={`cursor-pointer transition-color w-2 h-2 ${currentPage <= 1 ? 'bg-green-2' : 'bg-grey-3'}`} />
@@ -36,14 +37,14 @@ function	Footer({currentPage, scrollTo}) {
 
 function	Slide1() {
 	return (
-		<div className={'flex flex-col mx-auto w-full max-w-6xl h-full'}>
+		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
 			<section className={'items-start pt-0 -mt-4 h-screen md:pt-60 md:mt-0 small:pt-48'}>
 				<div className={'grid grid-cols-12 grid-rows-2 h-full md:items-center'}>
 					<div className={'flex relative col-span-12 row-span-1 -mx-4 md:hidden md:col-span-6 small:col-span-5'}>
 						<Image src={'/image_1.jpeg'} width={525} height={560} loading={'eager'} />
 					</div>
 					<div className={'col-span-12 row-span-1 pr-0 md:col-span-6 md:pr-10 small:col-span-7'}>
-						<h1 className={'mt-4 text-xl font-bold text-black whitespace-pre-wrap md:mt-0 md:text-4xl'}>{'Redefining the Future of Decentralized Tech'}</h1>
+						<h1 className={'mt-4 text-xl font-bold text-black whitespace-pre-wrap md:mt-0 md:text-4xl'}>{'Growing the Future of Decentralized Tech'}</h1>
 						<p className={'my-4 text-grey-2 md:my-6'}>{'Sprout DAO is a tech incubator-accelerator program launched by pioneers and innovators across the DeFi and web3 space.'}</p>
 						<div className={'flex flex-col space-y-4 space-x-0 md:flex-row md:space-y-0 md:space-x-4'}>
 							<Link href={'/apply'}>
@@ -63,7 +64,7 @@ function	Slide1() {
 
 function	Slide2() {
 	return (
-		<div className={'flex flex-col mx-auto w-full max-w-6xl h-full'}>
+		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
 			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
 				<div className={'grid grid-cols-12 md:items-center'}>
 					<div className={'hidden col-span-12 md:block md:col-span-6 small:col-span-5'}>
@@ -71,7 +72,7 @@ function	Slide2() {
 					</div>
 					<div className={'col-span-12 pl-0 md:col-span-6 md:pl-10 small:col-span-7'}>
 						<h2 className={'text-xl font-bold text-black whitespace-pre-wrap md:text-4xl'}>
-							{'No five-month bootcamps. No cookie-cutter approaches. Just heads down building.'}
+							{'No five-month bootcamps. No cookie-cutter approaches. Just heads down building. Just cultivation.'}
 						</h2>
 						<p className={'my-6 text-sm text-grey-2 whitespace-pre-wrap md:text-base'}>
 							{'We are builders helping the next generation of startups in blockchain accelerate and grow.\n\nBuilt and run by leading engineers in the space, we understand the complexities of putting your ideas into action and launching them.\n\nWe provide the technical mentorship, resources, network and environment entrepreneurs and builders need.'}
@@ -85,7 +86,7 @@ function	Slide2() {
 
 function	Slide3() {
 	return (
-		<div className={'flex flex-col mx-auto w-full max-w-6xl h-full'}>
+		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
 			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
 				<section className={'flex flex-col'}>
 					<h2 className={'mb-6 text-xl font-bold text-black whitespace-pre-wrap md:text-4xl'}>
@@ -119,42 +120,147 @@ function	Slide3() {
 }
 
 function	Slide4() {
+	const	partnerSlide = React.useRef(0);
+	const	mentorSlide = React.useRef(0);
+	
+	function	onPartnerSlidePrev() {
+		const	index = partnerSlide.current > 0 ? partnerSlide.current - 1 : 0;
+		partnerSlide.current = index;
+		document.getElementById('partners-slider').scrollLeft = index * (129 + 24);
+	}
+	function	onPartnerSlideNext() {
+		const	children = (document.getElementById('partners-slider').children.length);
+		const	index = partnerSlide.current < children ? partnerSlide.current + 1 : 0;
+		partnerSlide.current = index;
+		document.getElementById('partners-slider').scrollLeft = index * (129 + 24);
+	}
+
+	function	onMentorSlidePrev() {
+		const	index = mentorSlide.current > 0 ? mentorSlide.current - 1 : 0;
+		mentorSlide.current = index;
+		document.getElementById('mentors-slider').scrollLeft = index * (282 + 24);
+	}
+	function	onMentorSlideNext() {
+		const	children = (document.getElementById('mentors-slider').children.length);
+		const	index = mentorSlide.current < children ? mentorSlide.current + 1 : 0;
+		mentorSlide.current = index;
+		document.getElementById('mentors-slider').scrollLeft = index * (282 + 24);
+	}
+
 	return (
-		<div className={'flex flex-col mx-auto w-full max-w-6xl h-full'}>
+		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
 			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
-				<div className={'grid grid-cols-12'}>
-					<div className={'col-span-12 pr-0 md:col-span-6 md:pr-10 small:col-span-7'}>
-						<h2 className={'text-xl font-bold text-black whitespace-pre-wrap md:text-4xl'}>
-							{'Mentors'}
+				<div className={'flex flex-col'}>
+					<div className={'pr-0 mb-8 md:mb-12'}>
+						<h2 className={'mb-4 text-xl font-bold text-black whitespace-pre-wrap md:mb-8 md:text-4xl'}>
+							{'Partners'}
 						</h2>
-						<p className={'my-6 text-sm text-grey-2 whitespace-pre-wrap md:text-base'}>
-							{'Mentors are an essential part of SproutDAO. By providing guidance & sharing their wisdom, they create a real impact and lasting relationships.'}
-						</p>
-					</div>
-					<div className={'col-span-12 md:col-span-6 small:col-span-5'}>
-						<div className={'grid grid-cols-2 gap-6'}>
-							<div>
-								<Image src={'/mentors/a.jpeg'} width={800} height={533} />
-								<h4 className={'pt-2 pb-1 text-lg text-black'}>{'Minor'}</h4>
-								<p className={'hidden text-sm text-grey-2 md:inline'}>{'A modest father from Manchester is obsessed with light sabres. People often compare him to a supermodel. He always carries a newspaper.'}</p>
+						<div className={'flex relative items-center md:w-full'}>
+							<div id={'partners-slider'} className={'grid overflow-scroll grid-flow-col gap-6 w-full scroll-smooth scrollbar-none horizontal-snap'}>
+								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#262248]'}>
+									<Image src={'/partners/partner1.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#0A0F1F]'}>
+									<Image src={'/partners/partner2.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#FFFFFF]'}>
+									<Image src={'/partners/partner3.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#1969FF]'}>
+									<Image src={'/partners/partner4.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
+									<Image src={'/partners/partner5.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
+									<Image src={'/partners/partner5.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
+									<Image src={'/partners/partner5.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
+									<Image src={'/partners/partner5.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
+									<Image src={'/partners/partner5.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#262248]'}>
+									<Image src={'/partners/partner1.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#0A0F1F]'}>
+									<Image src={'/partners/partner2.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#FFFFFF]'}>
+									<Image src={'/partners/partner3.png'} width={104} height={104} />
+								</div>
+								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#1969FF]'}>
+									<Image src={'/partners/partner4.png'} width={104} height={104} />
+								</div>
 							</div>
-							<div>
-								<Image src={'/mentors/b.jpeg'} width={800} height={533} />
-								<h4 className={'pt-2 pb-1 text-lg text-black'}>{'Bang-tug'}</h4>
-								<p className={'hidden text-sm text-grey-2 md:inline'}>{'A shy professor who finds it hard to stay out of trouble. His top quality is that he is particularly cute. His purpose in life is to find a soulmate.'}</p>
+							<div className={'hidden absolute -left-4 cursor-pointer md:block md:-left-8'} onClick={onPartnerSlidePrev}>
+								<IconChevron className={'text-green-2 rotate-180'} />
 							</div>
-							<div>
-								<Image src={'/mentors/c.jpeg'} width={800} height={533} />
-								<h4 className={'pt-2 pb-1 text-lg text-black'}>{'Skullator'}</h4>
-								<p className={'hidden text-sm text-grey-2 md:inline'}>{'A 25-year-old engineer is traumatised by the loss of his right pinky when he was twelve. His biggest fear is being killed by a duck.'}</p>
-							</div>
-							<div>
-								<Image src={'/mentors/d.jpeg'} width={800} height={533} />
-								<h4 className={'pt-2 pb-1 text-lg text-black'}>{'VodChamp'}</h4>
-								<p className={'hidden text-sm text-grey-2 md:inline'}>{'A dishonest engineer from Brisbane is obsessed with chocolate. He has hair like a bird\'s nest. He always carries two phones.'}</p>
+							<div className={'hidden absolute -right-4 cursor-pointer md:block md:-right-8'} onClick={onPartnerSlideNext}>
+								<IconChevron className={'text-green-2'} />
 							</div>
 						</div>
 					</div>
+
+					<div className={'pr-0'}>
+						<h2 className={'mb-2 text-xl font-bold text-black whitespace-pre-wrap md:mb-4 md:text-4xl'}>
+							{'Mentors'}
+						</h2>
+						<p className={'mb-4 w-full text-sm text-grey-2 md:w-2/3 md:text-base'}>
+							{'Mentors are an essential part of SproutDAO. By providing guidance & sharing their wisdom, they create a real impact and lasting relationships.'}
+						</p>
+						<div className={'flex relative items-center w-full'}>
+							<div id={'mentors-slider'} className={'grid overflow-scroll grid-flow-col gap-6 w-full scroll-smooth scrollbar-none horizontal-snap'}>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+									<Image src={'/mentors/banteg.png'} width={282} height={218} />
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@banteg'}</div>
+								</div>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+									<Image src={'/mentors/tracheopteryx.png'} width={282} height={218} />
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@tracheopteryx'}</div>
+								</div>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+									<Image src={'/mentors/saltyfacu.png'} width={282} height={218} />
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@saltyfacu'}</div>
+								</div>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+									<Image src={'/mentors/shadeundertree.png'} width={282} height={218} />
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@shadeundertree'}</div>
+								</div>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+									<Image src={'/mentors/daryllau.png'} width={282} height={218} />
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@daryllau'}</div>
+								</div>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+									<Image src={'/mentors/skeletor_spaceman.png'} width={282} height={218} />
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@skeletor_spaceman'}</div>
+								</div>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+									<Image src={'/mentors/x48114.png'} width={282} height={218} />
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@x48114'}</div>
+								</div>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+									<Image src={'/mentors/flashfish.png'} width={282} height={218} />
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@flashfish'}</div>
+								</div>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+									<Image src={'/mentors/farrahmay.png'} width={282} height={218} />
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@farrahmay'}</div>
+								</div>
+							</div>
+							<div className={'hidden absolute -left-8 cursor-pointer md:block'} onClick={onMentorSlidePrev}>
+								<IconChevron className={'text-green-2 rotate-180'} />
+							</div>
+							<div className={'hidden absolute -right-8 cursor-pointer md:block'} onClick={onMentorSlideNext}>
+								<IconChevron className={'text-green-2'} />
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</section>
 		</div>
@@ -163,7 +269,7 @@ function	Slide4() {
 
 function	Slide5() {
 	return (
-		<div className={'flex flex-col mx-auto w-full max-w-6xl h-full'}>
+		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
 			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
 				<div className={'grid grid-cols-12 md:items-center'}>
 					<div className={'col-span-12 pr-0 md:col-span-6 md:pr-10 small:col-span-7'}>
@@ -171,7 +277,7 @@ function	Slide5() {
 							{'How does the program work?'}
 						</h2>
 						<p className={'my-6 text-sm text-grey-2 whitespace-pre-wrap md:mb-10 md:text-base'}>
-							{'We start off with a 4 week engineering sprint where you work 1x1 with our development team. We do not however have a set duration or start date. We are focused on delivering what startups need to position them for success across their next milestone. '}
+							{'We start off with a 4 week engineering sprint where you work 1x1 with our development team. We do not however have a set duration or start date. We are focused on delivering what startups need to position them for success across their next milestone.'}
 						</p>
 						<div>
 							<h3 className={'text-lg font-bold text-black md:text-2xl'}>{'The application process:'}</h3>
@@ -189,7 +295,7 @@ function	Slide5() {
 
 function	Slide6() {
 	return (
-		<div className={'flex flex-col mx-auto w-full max-w-6xl h-full'}>
+		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
 			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
 				<div className={'grid grid-cols-12 md:items-center'}>
 					<div className={'hidden col-span-12 md:block md:col-span-6 small:col-span-5'}>
@@ -237,7 +343,7 @@ function	Slide7() {
 	};
 
 	return (
-		<div className={'flex flex-col mx-auto w-full max-w-6xl h-full'}>
+		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
 			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
 				<div className={'grid grid-cols-12 md:items-center'}>
 					<div className={'col-span-12 pr-0 md:col-span-6 md:pr-10 small:col-span-7'}>
