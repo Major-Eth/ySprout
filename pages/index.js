@@ -7,8 +7,8 @@ import	IconChevron			from	'components/icons/IconChevron';
 
 function	Footer({currentPage, scrollTo}) {
 	return (
-		<footer className={'fixed inset-x-0 bottom-0 z-10 px-4 w-full bg-background md:px-0'}>
-			<div className={'flex flex-row justify-center py-4 mx-auto mt-auto space-x-4 w-full md:justify-start md:py-10 md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
+		<footer className={'fixed inset-x-0 top-0 z-50 px-4 mx-auto w-fit md:px-0'}>
+			<div className={'hidden flex-row justify-center items-center mx-auto space-x-4 md:flex md:h-[74px]'}>
 				<div
 					onClick={() => scrollTo(0)}
 					className={`cursor-pointer transition-color w-2 h-2 ${currentPage <= 1 ? 'bg-green-2' : 'bg-grey-3'}`} />
@@ -215,41 +215,41 @@ function	Slide4() {
 						</p>
 						<div className={'flex relative items-center w-full'}>
 							<div id={'mentors-slider'} className={'grid overflow-scroll grid-flow-col gap-6 w-full scroll-smooth scrollbar-none horizontal-snap'}>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
 									<Image src={'/mentors/banteg.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@banteg'}</div>
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@banteg'}</div>
 								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
 									<Image src={'/mentors/tracheopteryx.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@tracheopteryx'}</div>
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@tracheopteryx'}</div>
 								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
 									<Image src={'/mentors/saltyfacu.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@saltyfacu'}</div>
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@saltyfacu'}</div>
 								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
 									<Image src={'/mentors/shadeundertree.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@shadeundertree'}</div>
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@shadeundertree'}</div>
 								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
 									<Image src={'/mentors/daryllau.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@daryllau'}</div>
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@daryllau'}</div>
 								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
 									<Image src={'/mentors/skeletor_spaceman.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@skeletor_spaceman'}</div>
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@skeletor_spaceman'}</div>
 								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
 									<Image src={'/mentors/x48114.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@x48114'}</div>
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@x48114'}</div>
 								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
 									<Image src={'/mentors/flashfish.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@flashfish'}</div>
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@flashfish'}</div>
 								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71'}>
+								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
 									<Image src={'/mentors/farrahmay.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl'}>{'@farrahmay'}</div>
+									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@farrahmay'}</div>
 								</div>
 							</div>
 							<div className={'hidden absolute -left-8 cursor-pointer md:block'} onClick={onMentorSlidePrev}>
