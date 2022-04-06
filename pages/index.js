@@ -38,8 +38,8 @@ function	Footer({currentPage, scrollTo}) {
 function	Slide1() {
 	return (
 		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
-			<section className={'items-start pt-0 -mt-4 h-screen md:pt-60 md:mt-0 small:pt-48'}>
-				<div className={'grid grid-cols-12 grid-rows-2 h-full md:items-center'}>
+			<section className={'items-center pt-0 -mt-4 h-screen md:mt-0'}>
+				<div className={'grid grid-cols-12 h-full md:items-center'}>
 					<div className={'flex relative col-span-12 row-span-1 -mx-4 md:hidden md:col-span-6 small:col-span-5'}>
 						<Image src={'/image_1.jpeg'} width={525} height={560} loading={'eager'} />
 					</div>
@@ -65,7 +65,7 @@ function	Slide1() {
 function	Slide2() {
 	return (
 		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
-			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
+			<section className={'flex items-center h-screen'}>
 				<div className={'grid grid-cols-12 md:items-center'}>
 					<div className={'hidden col-span-12 md:block md:col-span-6 small:col-span-5'}>
 						<Image src={'/image_2.jpeg'} width={600} height={696} />
@@ -87,33 +87,31 @@ function	Slide2() {
 function	Slide3() {
 	return (
 		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
-			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
-				<section className={'flex flex-col'}>
-					<h2 className={'mb-6 text-xl font-bold text-black whitespace-pre-wrap md:text-4xl'}>
-						{'What we offer'}
-					</h2>
-					<div className={'flex overflow-x-scroll grid-cols-4 gap-6 items-center md:grid md:w-full inline-cards scrollbar-none'}>
-						<div className={'flex flex-col p-6 h-[456px] bg-white'}>
-							<h3 className={'mb-6 text-lg font-bold text-black md:text-2xl'}>{'Accepted startups'}</h3>
-							<p className={'pb-6 text-sm text-grey-2 md:text-base'}>{'Receive one-on-one tech mentorship, growth/marketing consulting, capital, and other support tailored to each startup.'}</p>
-						</div>
-
-						<div className={'flex flex-col p-6 h-[456px] bg-white'}>
-							<h3 className={'mb-6 text-lg font-bold text-black md:text-2xl'}>{'Tech Mentorship'}</h3>
-							<p className={'pb-6 text-sm text-grey-2 md:text-base'}>{'Get matched with the best mentors who provide you with hands-on support all while providing coveted insights into the DeFi and blockchain space. You will be paired with engineering coaches who will support you as you build.'}</p>
-						</div>
-
-						<div className={'flex flex-col p-6 h-[456px] bg-white'}>
-							<h3 className={'mb-6 text-lg font-bold text-black md:text-2xl'}>{'Growth'}</h3>
-							<p className={'pb-6 text-sm text-grey-2 md:text-base'}>{'Develop strategies to identify product market-fit, implement the right governance and tokenomics model, develop scalable distribution channels, grow your team, and raise venture capital from investors who believe in your vision.'}</p>
-						</div>
-
-						<div className={'flex flex-col p-6 h-[456px] bg-white'}>
-							<h3 className={'mb-6 text-lg font-bold text-black md:text-2xl'}>{'Community'}</h3>
-							<p className={'text-sm text-grey-2 md:text-base'}>{'By participating in the program, you will have life-long access to a network of the space’s top  engineers, mentors, entrepreneurs and alumni projects who are contributing to cutting-edge development in the sector.'}</p>
-						</div>
+			<section className={'flex flex-col justify-center h-screen'}>
+				<h2 className={'mb-6 text-xl font-bold text-black whitespace-pre-wrap md:text-4xl'}>
+					{'What we offer'}
+				</h2>
+				<div className={'flex overflow-x-scroll grid-cols-4 gap-6 items-center md:grid md:w-full inline-cards scrollbar-none'}>
+					<div className={'flex flex-col p-6 h-[456px] bg-white'}>
+						<h3 className={'mb-6 text-lg font-bold text-black md:text-2xl'}>{'Accepted startups'}</h3>
+						<p className={'pb-6 text-sm text-grey-2 md:text-base'}>{'Receive one-on-one tech mentorship, growth/marketing consulting, capital, and other support tailored to each startup.'}</p>
 					</div>
-				</section>
+
+					<div className={'flex flex-col p-6 h-[456px] bg-white'}>
+						<h3 className={'mb-6 text-lg font-bold text-black md:text-2xl'}>{'Tech Mentorship'}</h3>
+						<p className={'pb-6 text-sm text-grey-2 md:text-base'}>{'Get matched with the best mentors who provide you with hands-on support all while providing coveted insights into the DeFi and blockchain space. You will be paired with engineering coaches who will support you as you build.'}</p>
+					</div>
+
+					<div className={'flex flex-col p-6 h-[456px] bg-white'}>
+						<h3 className={'mb-6 text-lg font-bold text-black md:text-2xl'}>{'Growth'}</h3>
+						<p className={'pb-6 text-sm text-grey-2 md:text-base'}>{'Develop strategies to identify product market-fit, implement the right governance and tokenomics model, develop scalable distribution channels, grow your team, and raise venture capital from investors who believe in your vision.'}</p>
+					</div>
+
+					<div className={'flex flex-col p-6 h-[456px] bg-white'}>
+						<h3 className={'mb-6 text-lg font-bold text-black md:text-2xl'}>{'Community'}</h3>
+						<p className={'text-sm text-grey-2 md:text-base'}>{'By participating in the program, you will have life-long access to a network of the space’s top  engineers, mentors, entrepreneurs and alumni projects who are contributing to cutting-edge development in the sector.'}</p>
+					</div>
+				</div>
 			</section>
 		</div>
 	);
@@ -149,118 +147,115 @@ function	Slide4() {
 
 	return (
 		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
-			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
-				<div className={'flex flex-col'}>
-					<div className={'pr-0 mb-8 md:mb-12'}>
-						<h2 className={'mb-4 text-xl font-bold text-black whitespace-pre-wrap md:mb-8 md:text-4xl'}>
-							{'Partners'}
-						</h2>
-						<div className={'flex relative items-center md:w-full'}>
-							<div id={'partners-slider'} className={'grid overflow-scroll grid-flow-col gap-6 w-full scroll-smooth scrollbar-none horizontal-snap'}>
-								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#262248]'}>
-									<Image src={'/partners/partner1.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#0A0F1F]'}>
-									<Image src={'/partners/partner2.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#FFFFFF]'}>
-									<Image src={'/partners/partner3.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#1969FF]'}>
-									<Image src={'/partners/partner4.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
-									<Image src={'/partners/partner5.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
-									<Image src={'/partners/partner5.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
-									<Image src={'/partners/partner5.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
-									<Image src={'/partners/partner5.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
-									<Image src={'/partners/partner5.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#262248]'}>
-									<Image src={'/partners/partner1.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#0A0F1F]'}>
-									<Image src={'/partners/partner2.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#FFFFFF]'}>
-									<Image src={'/partners/partner3.png'} width={104} height={104} />
-								</div>
-								<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#1969FF]'}>
-									<Image src={'/partners/partner4.png'} width={104} height={104} />
-								</div>
+			<section className={'flex flex-col justify-center h-screen md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
+				<div className={'pr-0 mb-8 md:mb-12'}>
+					<h2 className={'mb-4 text-xl font-bold text-black whitespace-pre-wrap md:mb-8 md:text-4xl'}>
+						{'Partners'}
+					</h2>
+					<div className={'flex relative items-center md:w-full'}>
+						<div id={'partners-slider'} className={'grid overflow-scroll grid-flow-col gap-6 w-full scroll-smooth scrollbar-none horizontal-snap'}>
+							<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#262248]'}>
+								<Image src={'/partners/partner1.png'} width={104} height={104} />
 							</div>
-							<div className={'hidden absolute -left-4 cursor-pointer md:block md:-left-8'} onClick={onPartnerSlidePrev}>
-								<IconChevron className={'text-green-2 rotate-180'} />
+							<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#0A0F1F]'}>
+								<Image src={'/partners/partner2.png'} width={104} height={104} />
 							</div>
-							<div className={'hidden absolute -right-4 cursor-pointer md:block md:-right-8'} onClick={onPartnerSlideNext}>
-								<IconChevron className={'text-green-2'} />
+							<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#FFFFFF]'}>
+								<Image src={'/partners/partner3.png'} width={104} height={104} />
+							</div>
+							<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#1969FF]'}>
+								<Image src={'/partners/partner4.png'} width={104} height={104} />
+							</div>
+							<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
+								<Image src={'/partners/partner5.png'} width={104} height={104} />
+							</div>
+							<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
+								<Image src={'/partners/partner5.png'} width={104} height={104} />
+							</div>
+							<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
+								<Image src={'/partners/partner5.png'} width={104} height={104} />
+							</div>
+							<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
+								<Image src={'/partners/partner5.png'} width={104} height={104} />
+							</div>
+							<div className={'flex flex-row justify-center items-center  w-[129px] h-[129px] bg-white'}>
+								<Image src={'/partners/partner5.png'} width={104} height={104} />
+							</div>
+							<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#262248]'}>
+								<Image src={'/partners/partner1.png'} width={104} height={104} />
+							</div>
+							<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#0A0F1F]'}>
+								<Image src={'/partners/partner2.png'} width={104} height={104} />
+							</div>
+							<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#FFFFFF]'}>
+								<Image src={'/partners/partner3.png'} width={104} height={104} />
+							</div>
+							<div className={'flex flex-row justify-center items-center w-[129px] h-[129px] bg-[#1969FF]'}>
+								<Image src={'/partners/partner4.png'} width={104} height={104} />
 							</div>
 						</div>
-					</div>
-
-					<div className={'pr-0'}>
-						<h2 className={'mb-2 text-xl font-bold text-black whitespace-pre-wrap md:mb-4 md:text-4xl'}>
-							{'Mentors'}
-						</h2>
-						<p className={'mb-4 w-full text-sm text-grey-2 md:w-2/3 md:text-base'}>
-							{'Mentors are an essential part of SproutDAO. By providing guidance & sharing their wisdom, they create a real impact and lasting relationships.'}
-						</p>
-						<div className={'flex relative items-center w-full'}>
-							<div id={'mentors-slider'} className={'grid overflow-scroll grid-flow-col gap-6 w-full scroll-smooth scrollbar-none horizontal-snap'}>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
-									<Image src={'/mentors/banteg.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@banteg'}</div>
-								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
-									<Image src={'/mentors/tracheopteryx.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@tracheopteryx'}</div>
-								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
-									<Image src={'/mentors/saltyfacu.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@saltyfacu'}</div>
-								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
-									<Image src={'/mentors/shadeundertree.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@shadeundertree'}</div>
-								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
-									<Image src={'/mentors/daryllau.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@daryllau'}</div>
-								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
-									<Image src={'/mentors/skeletor_spaceman.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@skeletor_spaceman'}</div>
-								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
-									<Image src={'/mentors/x48114.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@x48114'}</div>
-								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
-									<Image src={'/mentors/flashfish.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@flashfish'}</div>
-								</div>
-								<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
-									<Image src={'/mentors/farrahmay.png'} width={282} height={218} />
-									<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@farrahmay'}</div>
-								</div>
-							</div>
-							<div className={'hidden absolute -left-8 cursor-pointer md:block'} onClick={onMentorSlidePrev}>
-								<IconChevron className={'text-green-2 rotate-180'} />
-							</div>
-							<div className={'hidden absolute -right-8 cursor-pointer md:block'} onClick={onMentorSlideNext}>
-								<IconChevron className={'text-green-2'} />
-							</div>
+						<div className={'hidden absolute -left-4 cursor-pointer md:block md:-left-8'} onClick={onPartnerSlidePrev}>
+							<IconChevron className={'text-green-2 rotate-180'} />
+						</div>
+						<div className={'hidden absolute -right-4 cursor-pointer md:block md:-right-8'} onClick={onPartnerSlideNext}>
+							<IconChevron className={'text-green-2'} />
 						</div>
 					</div>
+				</div>
 
+				<div className={'pr-0'}>
+					<h2 className={'mb-2 text-xl font-bold text-black whitespace-pre-wrap md:mb-4 md:text-4xl'}>
+						{'Mentors'}
+					</h2>
+					<p className={'mb-4 w-full text-sm text-grey-2 md:w-2/3 md:text-base'}>
+						{'Mentors are an essential part of SproutDAO. By providing guidance & sharing their wisdom, they create a real impact and lasting relationships.'}
+					</p>
+					<div className={'flex relative items-center w-full'}>
+						<div id={'mentors-slider'} className={'grid overflow-scroll grid-flow-col gap-6 w-full scroll-smooth scrollbar-none horizontal-snap'}>
+							<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
+								<Image src={'/mentors/banteg.png'} width={282} height={218} />
+								<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@banteg'}</div>
+							</div>
+							<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
+								<Image src={'/mentors/tracheopteryx.png'} width={282} height={218} />
+								<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@tracheopteryx'}</div>
+							</div>
+							<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
+								<Image src={'/mentors/saltyfacu.png'} width={282} height={218} />
+								<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@saltyfacu'}</div>
+							</div>
+							<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
+								<Image src={'/mentors/shadeundertree.png'} width={282} height={218} />
+								<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@shadeundertree'}</div>
+							</div>
+							<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
+								<Image src={'/mentors/daryllau.png'} width={282} height={218} />
+								<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@daryllau'}</div>
+							</div>
+							<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
+								<Image src={'/mentors/skeletor_spaceman.png'} width={282} height={218} />
+								<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@skeletor_spaceman'}</div>
+							</div>
+							<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
+								<Image src={'/mentors/x48114.png'} width={282} height={218} />
+								<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@x48114'}</div>
+							</div>
+							<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
+								<Image src={'/mentors/flashfish.png'} width={282} height={218} />
+								<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@flashfish'}</div>
+							</div>
+							<div className={'flex flex-col w-40 h-40 md:w-71 md:h-71 small:w-48 small:h-48'}>
+								<Image src={'/mentors/farrahmay.png'} width={282} height={218} />
+								<div className={'flex items-center p-2 w-full text-base font-bold text-grey-1 bg-white md:p-4 md:text-xl small:p-3 small:text-base'}>{'@farrahmay'}</div>
+							</div>
+						</div>
+						<div className={'hidden absolute -left-8 cursor-pointer md:block'} onClick={onMentorSlidePrev}>
+							<IconChevron className={'text-green-2 rotate-180'} />
+						</div>
+						<div className={'hidden absolute -right-8 cursor-pointer md:block'} onClick={onMentorSlideNext}>
+							<IconChevron className={'text-green-2'} />
+						</div>
+					</div>
 				</div>
 			</section>
 		</div>
@@ -270,7 +265,7 @@ function	Slide4() {
 function	Slide5() {
 	return (
 		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
-			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
+			<section className={'flex items-center h-screen'}>
 				<div className={'grid grid-cols-12 md:items-center'}>
 					<div className={'col-span-12 pr-0 md:col-span-6 md:pr-10 small:col-span-7'}>
 						<h2 className={'text-xl font-bold text-black whitespace-pre-wrap md:text-4xl'}>
@@ -296,7 +291,7 @@ function	Slide5() {
 function	Slide6() {
 	return (
 		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
-			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
+			<section className={'flex items-center h-screen'}>
 				<div className={'grid grid-cols-12 md:items-center'}>
 					<div className={'hidden col-span-12 md:block md:col-span-6 small:col-span-5'}>
 						<Image src={'/image_4.jpeg'} width={600} height={696} loading={'eager'}/>
@@ -344,7 +339,7 @@ function	Slide7() {
 
 	return (
 		<div className={'flex flex-col mx-auto w-full h-full md:max-w-3xl lg:max-w-5xl xl:max-w-6xl'}>
-			<section className={'items-start pt-20 h-screen md:pt-60 small:pt-32'}>
+			<section className={'flex items-center h-screen'}>
 				<div className={'grid grid-cols-12 md:items-center'}>
 					<div className={'col-span-12 pr-0 md:col-span-6 md:pr-10 small:col-span-7'}>
 						<form
